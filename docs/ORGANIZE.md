@@ -110,7 +110,7 @@ Look at `git status` first.
   the excluded folders (`?? .obsidian/`, `?? .trash/`); that is expected.
 - git is not installed → do not install it. Tell the user that in this case the verified backup (§1.3) is the only
   rollback, and go on without commits.
-- If git's `user.name`/`user.email` are empty (the commit says "Author identity unknown"), use this only for the
+- If `git config user.name` or `git config user.email` prints nothing (a commit would say "Author identity unknown"), start with this form instead of trying a plain commit, and use it only for the
   commits of this work: `git -c user.name="Neural Brain Kit" -c user.email="kit@localhost" commit …`.
   Do not change the global settings. (The vault's skills use the same form.)
 - Remember the hash of the baseline commit (`git rev-parse HEAD`); it is the rollback point.
@@ -235,7 +235,7 @@ The old folders **do not move**. The structure is added alongside.
    node scripts/kit-state.mjs record "<vault>" --mode A --language "<wiki language>"
    ```
    It records a skill only if the vault's copy is exactly the kit's; one that was already there stays unrecorded.
-10. Commit **once** (§1.4 form): `organize: soft adoption`. Then do §5 (the numbers) and report (§7.5–7.6).
+10. Commit **once** (§1.4 form): `organize: soft adoption`. ("Nothing to commit" is fine, not an error.) Then do §5 (the numbers) and report (§7.5–7.6).
 
 Afterwards the old notes are absorbed **as they are touched**: when the user works with an old note or
 asks about it, offer to digest it (`/wiki-ingest`) or move it. You can switch to mode B
@@ -248,7 +248,7 @@ Only with an **approved plan**, after the user's explicit word.
 1. First do steps 1–10 of A (structure, schema, skills; it ends with its own commit, and you skip its report), then the
    moves. **Skip A's steps 1–7 if the kit is already installed** (the scan says `kit schema installed: yes`, or
    `<vault>/.neural-brain-kit.json` exists): a repeat of `/organize` must not copy, rename or append anything
-   again. Do back up (§1.3) and take a **fresh snapshot** right before the
+   again (and skip step 8's log line too, unless something was really added). Do back up (§1.3) and take a **fresh snapshot** right before the
    first move, to compare against later:
    ```bash
    node scripts/vault-scan.mjs "<vault>" --snapshot auto
