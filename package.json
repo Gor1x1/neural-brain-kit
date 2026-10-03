@@ -1,0 +1,29 @@
+{
+  "name": "neural-brain",
+  "version": "0.1.0",
+  "private": true,
+  "engines": { "node": ">=20.11" },
+  "license": "MIT",
+  "description": "Neural Brain Kit: Obsidian plugin (neural-memory view of a vault) + Karpathy-method vault template, skills and a Claude-driven installer",
+  "scripts": {
+    "build": "node esbuild.mjs",
+    "dev": "node esbuild.mjs dev",
+    "check": "tsc --noEmit",
+    "export": "node scripts/export-graph.mjs",
+    "demo": "node scripts/make-demo-vault.mjs .demo-vault && node scripts/export-graph.mjs .demo-vault",
+    "serve": "node scripts/serve.mjs",
+    "screenshots": "node scripts/screenshots.mjs"
+  },
+  "dependencies": {
+    "d3-force-3d": "^3.0.6",
+    "three": "^0.186.1"
+  },
+  "devDependencies": {
+    "@types/d3-force": "^3.0.10",
+    "@types/three": "^0.186.0",
+    "esbuild": "^0.28.2",
+    "obsidian": "^1.13.1",
+    "puppeteer-core": "^25.12.0",
+    "typescript": "^7.0.2"
+  }
+}
